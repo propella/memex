@@ -1,0 +1,10 @@
+# 画像ファイル (Cloudflare R2 で管理)
+content/**/assets/
+
+# Quartz ビルド成果物
+quartz/public/
+quartz/node_modules/
+quartz/.quartz-cache/
+
+# OS
+.DS_Store

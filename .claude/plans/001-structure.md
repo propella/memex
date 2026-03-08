@@ -89,10 +89,10 @@ draft: false
 
 ### 実装タスク
 
-- [ ] Quartz をセットアップする
-- [ ] ディレクトリ構造を作成する (`content/dev`, `art`, `note`, `portfolio`, `en`)
-- [ ] `.gitignore` に画像ファイルのパターンを追加する
-- [ ] `scripts/upload-images.sh` を作成する (ローカル画像 → R2 アップロード + URL 置換)
-- [ ] サンプル記事を各カテゴリに 1 つずつ作成してプレビューを確認する
+- [x] Quartz をセットアップする (`quartz/` サブディレクトリ、Node v22、`-d ../content` で起動)
+- [x] ディレクトリ構造を作成する (`content/dev`, `art`, `note`, `portfolio`, `en`)
+- [x] `.gitignore` に画像ファイルのパターンを追加する
+- [x] `scripts/upload-images.sh` を作成する (ローカル画像 → R2 アップロード + URL 置換)
+- [x] サンプル記事を各カテゴリに 1 つずつ作成してプレビューを確認する (HTTP 200 確認済み)
 - [ ] Cloudflare R2 バケットを作成し、アップロードスクリプトを動作確認する
 - [ ] Cloudflare Pages / GitHub Pages でデプロイパイプラインを設定する
