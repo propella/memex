@@ -28,6 +28,24 @@
     * 現在 https://propella.blogspot.com/ にある少数の英語記事も別に置きたい。
 * Static Site Generator の第一候補は Quartz、 Hugo、 Astro 将来変更の可能性あり。
 
+## ローカルプレビュー
+
+Node v22 が必要。初回のみセットアップ:
+
+```bash
+source ~/.nvm/nvm.sh && nvm use 22
+cd quartz && npm install && cd ..
+```
+
+プレビューサーバーの起動:
+
+```bash
+source ~/.nvm/nvm.sh && nvm use 22
+node quartz/quartz/bootstrap-cli.mjs build -d ../content --serve
+```
+
+ブラウザで http://localhost:8080 を開く。
+
 ## References
 
 * [A Brief History & Ethos of the Digital Garden](https://maggieappleton.com/garden-history)
