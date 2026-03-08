@@ -33,6 +33,7 @@
 Node v22 が必要。初回のみセットアップ:
 
 ```bash
+git submodule update --init
 source ~/.nvm/nvm.sh && nvm use 22
 cd quartz && npm install && cd ..
 ```
@@ -40,11 +41,12 @@ cd quartz && npm install && cd ..
 プレビューサーバーの起動:
 
 ```bash
-source ~/.nvm/nvm.sh && nvm use 22
-node quartz/quartz/bootstrap-cli.mjs build -d ../content --serve
+./scripts/preview.sh
 ```
 
 ブラウザで http://localhost:8080 を開く。
+
+Quartz の設定変更は `quartz.config.ts` / `quartz.layout.ts` (memex root) を編集する。
 
 ## References
 

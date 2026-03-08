@@ -1,10 +1,12 @@
 # 画像ファイル (Cloudflare R2 で管理)
 content/**/assets/
 
-# Quartz ビルド成果物
+# Quartz ビルド成果物・submodule へのコピー (memex root が正)
 quartz/public/
 quartz/node_modules/
 quartz/.quartz-cache/
+quartz/quartz.config.ts
+quartz/quartz.layout.ts
 
 # OS
 .DS_Store
