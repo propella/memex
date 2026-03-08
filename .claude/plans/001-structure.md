@@ -79,6 +79,14 @@ draft: false
 - ファイル名: `MM-title.md` (日付でソート用)
 - パーマリンク: `/dev/YYYY/kebab-case-title` (日付なし slug をフロントマターで指定)
 
+### テスト用サンプル記事
+
+- dev: https://qiita.com/propella/items/01a8a5fa0836a702813d
+- art: https://propella.hatenablog.com/entry/2019/07/15/232143
+- note: https://propella.hatenablog.com/entry/20081206/p1
+- portfolio: https://www.yamamiya.org/?pgid=l30ms6lp1-27d728a7-f20c-42e0-8ba0-ef71b7f482e0
+- en: https://propella.blogspot.com/2011/12/flapjax-vs-tangle.html
+
 ### 実装タスク
 
 - [ ] Quartz をセットアップする
