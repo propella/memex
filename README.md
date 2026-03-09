@@ -59,6 +59,10 @@ cd quartz && npm install && cd ..
 
 Quartz の設定変更は `quartz.config.ts` / `quartz.layout.ts` (memex root) を編集する。
 
+## 記事を書く
+
+Claude Code で `/new` を実行するとカテゴリ・タイトルを確認した上で記事のひな形を生成する。
+
 ## References
 
 * [A Brief History & Ethos of the Digital Garden](https://maggieappleton.com/garden-history)

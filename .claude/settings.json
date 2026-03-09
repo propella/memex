@@ -5,7 +5,6 @@
       "Bash(npm *)",
       "Bash(node *)",
       "Bash(nvm *)",
-      "Bash(source ~/.nvm/nvm.sh*)",
       "Bash(chmod +x scripts/*)",
       "Bash(bash scripts/*)",
       "Bash(curl -s http://localhost:*)",
