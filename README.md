@@ -30,10 +30,21 @@
 
 ## ローカルプレビュー
 
-Node v22 が必要。初回のみセットアップ:
+Node v22 が必要。初回クローン:
+
+```bash
+git clone --recurse-submodules git@github.com:propella/memex.git
+```
+
+すでにクローン済みの場合は submodule を初期化:
 
 ```bash
 git submodule update --init
+```
+
+依存パッケージのインストール:
+
+```bash
 source ~/.nvm/nvm.sh && nvm use 22
 cd quartz && npm install && cd ..
 ```
