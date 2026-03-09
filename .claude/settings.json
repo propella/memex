@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(npm *)",
+      "Bash(node *)",
+      "Bash(nvm *)",
+      "Bash(source ~/.nvm/nvm.sh*)",
+      "Bash(chmod +x scripts/*)",
+      "Bash(bash scripts/*)",
+      "Bash(curl -s http://localhost:*)",
+      "Bash(pip3 install git-filter-repo)",
+      "Bash(git-filter-repo *)",
+      "WebFetch(domain:quartz.jzhao.xyz)",
+      "WebFetch(domain:qiita.com)",
+      "WebFetch(domain:propella.hatenablog.com)",
+      "WebFetch(domain:propella.blogspot.com)",
+      "WebFetch(domain:www.yamamiya.org)"
+    ]
+  }
+}
