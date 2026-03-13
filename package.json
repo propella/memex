@@ -1,0 +1,24 @@
+{
+  "name": "memex",
+  "version": "1.0.0",
+  "description": "* 毎週更新しても苦にならないくらい簡単に文書を記録し、発表できるようにしたい。 * 今までに書いた文章が色んなところに散逸しているのでまとめたい。 * これからも文章をはてなブログや Qiita に書くと同時に Git レポジトリにもまとめて管理しやすくしたい。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/propella/memex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/propella/memex/issues"
+  },
+  "homepage": "https://github.com/propella/memex#readme",
+  "devDependencies": {
+    "wrangler": "^4.73.0"
+  }
+}

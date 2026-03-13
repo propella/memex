@@ -1,94 +1,35 @@
 ---
-title: "Quartz で Digital Garden を作った"
+title: "自分の書いた物をまとめたい"
 date: 2026-03-10
 slug: building-digital-garden
 tags: [dev, quartz, digital-garden, obsidian]
 draft: false
 ---
 
-以前からメモや文章を一箇所にまとめて公開したいと思っていた。ブログのように完成した記事を投稿するのではなく、育てながら育てていく「庭」のような場所 ― それが [Digital Garden](https://maggieappleton.com/garden-history) というコンセプトだ。
+私は今まで、はてなブログや Qiita など、いろいろな場所に自分の書いた文章を置いてきました。あまりバラバラだと後で探しにくいなというのと、最近流行りの Claude Code なんかと会話するためにまとまっていた方が何かと便利でしょという事で GitHub にまとめる事にしました。そこで以下の事を考えました。
 
-この記事では、その Digital Garden をどう作ったかをまとめる。
+* 今までに書いた文章が色んなところに散逸しているのでまとめたい。
+* これからも文章をはてなブログや Qiita に書くと同時に Git レポジトリにもまとめて管理しやすくしたい。
+* 毎週更新しても苦にならないくらい簡単に文書を記録し、発表できるようにしたい。
+* 映像や写真は GitHub で管理しずらいので、何とか別の方法を考える。
 
-## 目標
+## 基本構造
 
-- Markdown で書いてローカルでプレビューし、最小限の手間で公開する
-- コンテンツとツールを分離する（ジェネレーターをあとから変えても困らない構成にする）
-- 画像を Git リポジトリに入れずにきれいに扱う
-- URL を安定させる（古いリンクが切れない）
+Chat GPT と相談した結果、私のやりたい事は [Digital Garden](https://maggieappleton.com/garden-history) というのと似ている事が分かりました。また、GitHub Pages として整形する場合のおすすめは [Quartz](https://quartz.jzhao.xyz/) というツールでした。特に好みは無いので素直に従う事にします。
 
-## ツール選定
+## 写真
 
-Hugo、Astro などを検討した結果、**[Quartz](https://quartz.jzhao.xyz/)** (v4) を選んだ。Digital Garden 向けに設計されており、`[[wikilink]]` スタイルのリンクや Obsidian との親和性が高い。出力は素の HTML なので、JavaScript フレームワークに依存しない点も気に入っている。
+ビデオは YouTube と最初から考えていましたが、画像はよく分かりませんでした。Chat GPT のおすすめは Cloudflare R2 に置いてリンクを貼るという事なのでこの線で進めます。https://www.cloudflare.com を使うのは初めてです。
 
-画像ホスティングには **Cloudflare R2** を使うことにした。画像を Git に入れず CDN で配信でき、自分のスケールなら費用はほぼゼロだ。
+とりあえず Cloudflare にアカウントを作ってみました。
 
-## ディレクトリ構造
-
-```
-memex/
-├── content/          # Quartz のコンテンツルート (Git 管理)
-│   ├── index.md
-│   ├── dev/          # 技術記事
-│   │   └── YYYY/
-│   │       └── MM-title.md
-│   ├── art/          # キネティックアート・電子工作
-│   ├── note/         # 雑記・エッセイ
-│   ├── portfolio/    # 作品集
-│   └── en/           # 英語記事
-├── quartz/           # Quartz (git submodule)
-└── scripts/
-    └── upload-images.sh
-```
-
-ファイル名を `YYYY/MM-title.md` にすることで、ファイルブラウザでも日付順に並ぶ。URL は日付なしにしたいので、パーマリンクはフロントマターの `slug` で指定する。
-
-```yaml
----
-title: "Quartz で Digital Garden を作った"
-date: 2026-03-10
-slug: building-digital-garden
-tags: [dev, quartz, digital-garden]
-draft: false
----
-```
-
-## 画像の扱い
-
-画像の管理が一番悩んだ点だった。やりたいことは次の三つ。
-
-1. ローカル執筆時に画像をプレビューできる（Obsidian や `npx quartz build --serve` で）
-2. Git に画像バイナリを入れない
-3. 本番では CDN 配信する
-
-解決策として、執筆中は相対パス（`![](assets/foo.png)`）で書き、コミット前に `scripts/upload-images.sh` を実行する。このスクリプトが画像を R2 にアップロードし、Markdown 内のパスを R2 の URL に書き換える。
-
-```
-content/dev/2026/assets/   ← ローカルのみ、.gitignore で除外
-```
-
-`.gitignore` に `content/**/assets/` を追加してあるので、画像がリポジトリに紛れ込むことはない。
-
-## Quartz のセットアップ
+次に R2 バケットを作成します。Cloudflare のダッシュボードからクレジットカード情報を入力し、 R2 を有効にしてから、wrangler という CLI ツールで操作します。
 
 ```bash
-git submodule add https://github.com/jackyzha0/quartz.git quartz
-cd quartz
-npm install
+npm install --save-dev wrangler
+npx wrangler login
+npx wrangler r2 bucket create memex-assets
 ```
 
-Quartz はデフォルトで `quartz/content/` 以下にコンテンツを置くが、`-d` フラグで別のディレクトリを指定できる。
+`wrangler login` を実行するとブラウザが開いて OAuth 認証が行われます。バケット作成後、ダッシュボードの Settings > Public Development URL > Enable でパブリック URL を有効にします。今回発行された URL は `https://pub-d57c6c29d622472c8cfe58ae7483dd64.r2.dev` でした。
 
-```bash
-npx quartz build --serve -d ../content
-```
-
-こうするとコンテンツをリポジトリルートに置けて、Quartz 本体と分離できる。将来ジェネレーターを変えたくなっても、`content/` ディレクトリをそのまま移行できる。
-
-## 今後の予定
-
-- Cloudflare Pages でプッシュ時に自動デプロイする仕組みを作る
-- R2 アップロードスクリプトを実際に動かして画像フローを確認する
-- 記事を書き続ける ― 庭に植物が必要だ
-
-このサイトのソースは [github.com/propella/memex](https://github.com/propella/memex) にある。
