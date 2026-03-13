@@ -14,7 +14,10 @@
       "WebFetch(domain:qiita.com)",
       "WebFetch(domain:propella.hatenablog.com)",
       "WebFetch(domain:propella.blogspot.com)",
-      "WebFetch(domain:www.yamamiya.org)"
+      "WebFetch(domain:www.yamamiya.org)",
+      "Bash(git commit:*)",
+      "Bash(wrangler --version)",
+      "Bash(npx wrangler:*)"
     ]
   }
 }
