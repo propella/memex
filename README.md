@@ -1,5 +1,7 @@
 # memex - my personal external memory
 
+公開ページ: https://memex.tak-ed1.workers.dev/
+
 ## Goals
 
 * 毎週更新しても苦にならないくらい簡単に文書を記録し、発表できるようにしたい。
