@@ -95,4 +95,10 @@ draft: false
 - [x] `scripts/upload-images.sh` を作成する (ローカル画像 → R2 アップロード + URL 置換)
 - [x] サンプル記事を各カテゴリに 1 つずつ作成してプレビューを確認する (HTTP 200 確認済み)
 - [x] Cloudflare R2 バケットを作成し、アップロードスクリプトを動作確認する
-- [ ] Cloudflare Pages / GitHub Pages でデプロイパイプラインを設定する
+- [ ] Cloudflare Pages でデプロイパイプラインを設定する
+  - ダッシュボード設定値:
+    - Root directory: `quartz`
+    - Build command: `npx quartz build -d ../content`
+    - Build output directory: `public`
+    - Node.js version: `22`
+  - `quartz/wrangler.toml` にビルド設定を記録済み

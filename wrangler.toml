@@ -1,0 +1,11 @@
+# Cloudflare Pages build configuration (reference)
+# https://developers.cloudflare.com/pages/configuration/build-configuration/
+#
+# Dashboard settings (Workers & Pages > memex > Settings > Build):
+#   Root directory:          quartz
+#   Build command:           npx quartz build -d ../content
+#   Build output directory:  public
+#   Node.js version:         22
+
+name = "memex"
+pages_build_output_dir = "public"
