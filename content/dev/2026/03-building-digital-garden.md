@@ -40,7 +40,7 @@ npx wrangler r2 bucket create memex-assets
 * https://dash.cloudflare.com に行く
 * Workers & Pages → Create application → Connect to Git: レポジトリを選択 → Install & Authorize
 * GitHub レポジトリを選択
-* Build command: cd quartz && npx quartz build -d ../content
+* Build command: bash scripts/build.sh
 * Path: デフォルト
 * ここで一度デプロイが走る。
 * この設定には Workers & Pages > (プロジェクト) > Settings > Build Configuration で戻れる。

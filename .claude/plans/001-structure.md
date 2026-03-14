@@ -95,10 +95,9 @@ draft: false
 - [x] `scripts/upload-images.sh` を作成する (ローカル画像 → R2 アップロード + URL 置換)
 - [x] サンプル記事を各カテゴリに 1 つずつ作成してプレビューを確認する (HTTP 200 確認済み)
 - [x] Cloudflare R2 バケットを作成し、アップロードスクリプトを動作確認する
-- [ ] Cloudflare Pages でデプロイパイプラインを設定する
-  - ダッシュボード設定値:
-    - Root directory: `quartz`
-    - Build command: `npx quartz build -d ../content`
-    - Build output directory: `public`
-    - Node.js version: `22`
-  - `quartz/wrangler.toml` にビルド設定を記録済み
+- [x] Cloudflare Pages でデプロイパイプラインを設定する
+  - URL: https://memex.tak-ed1.workers.dev/
+  - ダッシュボードのビルドコマンド: `bash scripts/build.sh`
+  - `scripts/build.sh`: config コピー → `npm install` → `npx quartz build -d ../content`
+  - `quartz.config.ts` / `quartz.layout.ts` はリポジトリルートで管理し、ビルド時にサブモジュールへコピー
+  - `wrangler.toml` でデプロイ先アセットを `quartz/public` に設定
