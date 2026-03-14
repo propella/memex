@@ -5,10 +5,11 @@
 
 - DORA ベストプラクティス (https://dora.dev/) に従う
 - python を利用する場合 uv を使う。
-- 開発プランは .claude/plans/nnn-(slug).md に記述する。nnn は連番。
+- 開発プランは .claude/plans/(nnn)-(slug).md に記述する。nnn は連番。
 - すでにプランファイルに課題が記述されている場合、開発プランは課題の下に記述する。
 - 開発プランには、完了を示すチェックボックスをつける。
 - 実装を開始する前に、プランファイルを commit & push する。
+- 技術選択が必要な場合 docs/adr/(nnn)-(slug).md に記述する。
 
 開発手順
 

@@ -45,6 +45,7 @@ rclone sync ~/src/memex/content gdrive:memex-images \
 
 - メリット: Git リポジトリと画像が完全に分離。Google Drive Desktop で直感的に管理できる
 - デメリット: 記事と画像が別の場所になり、ローカルプレビュー時の相対パス参照ができなくなる
+  - 回避策: `content/**/assets/` は `.gitignore` で除外済みのため、symlink を置くことができる。symlink 経由で相対パス参照とローカルプレビューが維持できるが、新しい記事ディレクトリを作るたびに手動で symlink を作成する必要がある
 
 ## Decision
 
