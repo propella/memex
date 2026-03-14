@@ -1,5 +1,5 @@
 # Cloudflare Workers + Assets configuration
-# Build command: cd quartz && npm install && npx quartz build -d ../content
+# Build command: cd quartz && cp ../quartz.config.ts . && cp ../quartz.layout.ts . && npm install && npx quartz build -d ../content
 # Node.js version: 22
 
 name = "memex"

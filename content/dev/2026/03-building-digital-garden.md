@@ -33,3 +33,15 @@ npx wrangler r2 bucket create memex-assets
 
 `wrangler login` を実行するとブラウザが開いて OAuth 認証が行われます。バケット作成後、ダッシュボードの Settings > Public Development URL > Enable でパブリック URL を有効にします。今回発行された URL は `https://pub-d57c6c29d622472c8cfe58ae7483dd64.r2.dev` でした。
 
+## ページの公開
+
+サイト自体の公開には当初 GitHub Pages を使おうと思っていましたが Cloudflare Pages の方が便利そうなので変えました。以下設定メモです。
+
+* https://dash.cloudflare.com に行く
+* Workers & Pages → Create application → Connect to Git: レポジトリを選択 → Install & Authorize
+* GitHub レポジトリを選択
+* Build command: cd quartz && npx quartz build -d ../content
+* Path: デフォルト
+* ここで一度デプロイが走る。
+* この設定には Workers & Pages > (プロジェクト) > Settings > Build Configuration で戻れる。
+* 再デプロイ: Workers & Pages > (プロジェクト) Latest build failed > Retry Build
