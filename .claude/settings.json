@@ -1,23 +1,28 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git *)",
-      "Bash(npm *)",
-      "Bash(node *)",
-      "Bash(nvm *)",
-      "Bash(chmod +x scripts/*)",
       "Bash(bash scripts/*)",
+      "Bash(chmod +x scripts/*)",
       "Bash(curl -s http://localhost:*)",
-      "Bash(pip3 install git-filter-repo)",
+      "Bash(git *)",
       "Bash(git-filter-repo *)",
-      "WebFetch(domain:quartz.jzhao.xyz)",
-      "WebFetch(domain:qiita.com)",
-      "WebFetch(domain:propella.hatenablog.com)",
-      "WebFetch(domain:propella.blogspot.com)",
-      "WebFetch(domain:www.yamamiya.org)",
-      "Bash(git commit:*)",
+      "Bash(node *)",
+      "Bash(npm *)",
+      "Bash(npx wrangler:*)",
+      "Bash(nvm *)",
       "Bash(wrangler --version)",
-      "Bash(npx wrangler:*)"
+      "WebFetch(domain:memex.tak-ed1.workers.dev)",
+      "WebFetch(domain:propella.blogspot.com)",
+      "WebFetch(domain:propella.hatenablog.com)",
+      "WebFetch(domain:qiita.com)",
+      "WebFetch(domain:quartz.jzhao.xyz)",
+      "WebFetch(domain:www.yamamiya.org)"
     ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "allowWrite": []
+    }
   }
 }
